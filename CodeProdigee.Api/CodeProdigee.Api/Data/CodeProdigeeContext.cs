@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CodeProdigee.Api.DomainModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeProdigee.Api.Data
@@ -12,5 +13,7 @@ namespace CodeProdigee.Api.Data
         {
             
         }
+
+        public DbSet<Post> Posts { get; set; }
     }
 }

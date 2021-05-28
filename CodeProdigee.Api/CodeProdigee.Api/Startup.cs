@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CodeProdigee.Api.Data;
+using CodeProdigee.Api.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -27,6 +28,8 @@ namespace CodeProdigee.Api
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
                     .EnableSensitiveDataLogging();
+
+                services.AddHotChocolate();
             });
         }
 
@@ -42,10 +45,7 @@ namespace CodeProdigee.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapGraphQL();
             });
         }
     }
