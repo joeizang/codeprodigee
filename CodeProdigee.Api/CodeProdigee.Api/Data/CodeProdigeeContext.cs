@@ -30,7 +30,6 @@ namespace CodeProdigee.Api.Data
             builder.Entity<Comment>()
                 .HasMany(c => c.Replies)
                 .WithOne(r => r.OriginalComment)
-                .HasForeignKey(c => c.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Post>()
