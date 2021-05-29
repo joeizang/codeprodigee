@@ -48,6 +48,17 @@ namespace CodeProdigee.Api.Data
                 .WithOne(c => c.Commentator)
                 .HasForeignKey(c => c.CommentatorId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Post>()
+                .HasQueryFilter(p => !p.IsDeleted);
+            builder.Entity<Author>()
+                .HasQueryFilter(a => !a.IsDeleted);
+            builder.Entity<Comment>()
+                .HasQueryFilter(c => !c.IsDeleted);
+            builder.Entity<Commentator>()
+                .HasQueryFilter(c => !c.IsDeleted);
+            builder.Entity<Resource>()
+                .HasQueryFilter(r => !r.IsDeleted);
         }
     }
 }

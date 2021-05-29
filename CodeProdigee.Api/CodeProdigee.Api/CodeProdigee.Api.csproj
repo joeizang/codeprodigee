@@ -5,14 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    
     <PackageReference Include="GraphQL.Server.Ui.Voyager" Version="5.0.2" />
-    <PackageReference Include="HotChocolate" Version="11.2.2" />
+    
     <PackageReference Include="HotChocolate.AspNetCore" Version="11.2.2" />
-    <PackageReference Include="HotChocolate.Data" Version="11.2.2" />
+    
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.2.2" />
-    <PackageReference Include="HotChocolate.Language" Version="11.2.2" />
-    <PackageReference Include="HotChocolate.Types" Version="11.2.2" />
-    <PackageReference Include="HotChocolate.Utilities" Version="11.2.2" />
+    
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -23,6 +22,9 @@
 
   <ItemGroup>
     <Folder Include="Graphql\MutationTypes\" />
+    <Folder Include="Graphql\QueryTypes\Comments\" />
+    <Folder Include="Graphql\QueryTypes\Commentators\" />
+    <Folder Include="Graphql\QueryTypes\Resources\" />
   </ItemGroup>
 
 </Project>
