@@ -1,16 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CodeProdigee.Api.Data;
-using CodeProdigee.Api.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using CodeProdigee.Api.Graphql.QueryTypes;
+using GraphQL.Server.Ui.Voyager;
+using CodeProdigee.Api.Graphql.QueryTypes.Authors;
+using CodeProdigee.Api.Graphql.QueryTypes.Posts;
 
 namespace CodeProdigee.Api
 {
@@ -24,13 +22,18 @@ namespace CodeProdigee.Api
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CodeProdigeeContext>(options =>
+            services.AddPooledDbContextFactory<CodeProdigeeContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
                     .EnableSensitiveDataLogging();
-
-                services.AddHotChocolate();
             });
+            services.AddGraphQLServer()
+                .AddQueryType<Query>()
+                .AddType<AuthorType>()
+                .AddType<PostType>()
+                .AddProjections()
+                .AddFiltering()
+                .AddSorting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +50,11 @@ namespace CodeProdigee.Api
             {
                 endpoints.MapGraphQL();
             });
+            var gqlOptions = new VoyagerOptions()
+            {
+                GraphQLEndPoint = "/graphql"
+            };
+            app.UseGraphQLVoyager(gqlOptions, "/graphql-voyager");
         }
     }
 }
