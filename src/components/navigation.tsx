@@ -20,7 +20,7 @@ const menuItems = [
   }
 ]
 
-export function Navigation () {
+export default function Navigation () {
   return (
     <nav className="container-fluid px-4 mx-auto bg-mountain-mist-500">
       <div className="flex flex-row md:justify-between items-center">
@@ -38,7 +38,7 @@ export function Navigation () {
           {menuItems.map((menuItem) => (
             <span
               key={`${new Date()}-${menuItem.menuText}`}
-              className={"p-5 md:text-xl hover:underline hover:underline-offset-8 decoration-wavy hover:cursor-pointer"}
+              className={"p-5 md:text-xl hover:text-old-brick-400 hover:underline hover:underline-offset-8 decoration-wavy hover:cursor-pointer"}
             >
             <Link href={menuItem.link}>
               {menuItem.menuText}
