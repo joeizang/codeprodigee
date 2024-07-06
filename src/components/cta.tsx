@@ -42,7 +42,9 @@ export default function Cta () {
         <span className="ml-3">#laptops</span>
       </div>
       <div className="buttonArea mx-auto mt-7 mb-6 font-semibold w-6/12">
-        <button className="bg-old-brick-800 p-4 rounded border-old-brick-200 font-semibold hover:bg-old-brick-700">
+        <button
+          className="bg-old-brick-800 p-4 rounded border-old-brick-200 font-semibold hover:bg-old-brick-700 hover:text-white"
+        >
           Continue Reading
         </button>
       </div>
