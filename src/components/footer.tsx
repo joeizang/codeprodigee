@@ -1,4 +1,33 @@
+import Link from 'next/link'
 import React from 'react'
+
+const socials = [
+  {
+    url: 'https://www.linkedin.com/in/joseph-izang-156b9449/',
+    fontIcon: 'bi-twitter-x',
+    cssClass: 'hover:text-old-brick-400 hover:cursor-pointer text-2xl bi'
+  },
+  {
+    url: 'https://github.com/joeizang',
+    fontIcon: 'bi-github',
+    cssClass: 'hover:text-old-brick-400 hover:cursor-pointer text-2xl bi'
+  },
+  {
+    url: 'https://stackoverflow.com/users/220413/joseph-izang',
+    fontIcon: 'bi-stack-overflow',
+    cssClass: 'hover:text-old-brick-400 hover:cursor-pointer text-2xl bi'
+  },
+  {
+    url: 'https://discord.com/users/joseph_izang',
+    fontIcon: 'bi-discord',
+    cssClass: 'hover:text-old-brick-400 hover:cursor-pointer text-2xl bi'
+  },
+  {
+    url: 'https://www.linkedin.com/in/joseph-izang-156b9449/',
+    fontIcon: 'bi-linkedin',
+    cssClass: 'hover:text-old-brick-400 hover:cursor-pointer text-2xl bi'
+  }
+]
 
 export default function Footer () {
   return (
@@ -9,11 +38,13 @@ export default function Footer () {
       </div>
       <div className="p-5 flex flex-col text-center"> 
         <ul className="flex gap-3">
-          <li><a href="" className="hover:text-old-brick-400 hover:cursor-pointer bi bi-twitter-x text-2xl"></a></li>
-          <li><a href="" className="hover:text-old-brick-400 hover:cursor-pointer bi bi-github text-2xl"></a></li>
-          <li><a href="" className="hover:text-old-brick-400 hover:cursor-pointer bi bi-stack-overflow text-2xl"></a></li>
-          <li><a href="" className="hover:text-old-brick-400 hover:cursor-pointer bi bi-discord text-2xl"></a></li>
-          <li><a href="" className="hover:text-old-brick-400 hover:cursor-pointer bi bi-linkedin text-2xl"></a></li>
+          {
+            socials.map((social, idx) => (
+              <li key={`${social.fontIcon}-${idx}`}>
+                <Link href={social.url} className={`${social.cssClass} ${social.fontIcon}`}></Link>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div className="mr-4 p-5">
