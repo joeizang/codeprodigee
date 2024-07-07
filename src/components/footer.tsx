@@ -41,7 +41,7 @@ export default function Footer () {
           {
             socials.map((social, idx) => (
               <li key={`${social.fontIcon}-${idx}`}>
-                <Link href={social.url} className={`${social.cssClass} ${social.fontIcon}`}></Link>
+                <a href={social.url} className={`${social.cssClass} ${social.fontIcon}`} target="_blank"></a>
               </li>
             ))
           }
