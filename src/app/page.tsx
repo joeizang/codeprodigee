@@ -14,10 +14,9 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center mx-auto text-stone-200">
       <Cta />
-      <p className="">Testing</p>
-
-      {generateVariableLengthArrayWithAnyType<string>(5, 'helloworld').map((thing, idx) => (
-        <PostStub key={idx} />
+      <hr className="border-kabul-300 border w-9/12" />
+      {generateVariableLengthArrayWithAnyType<string>(5, 'helloworld').map((thing, idx, arr) => (
+        <PostStub key={idx} showHr={idx != arr.length - 1} />
       ))}
     </main>
   )
