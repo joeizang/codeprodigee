@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Button from './Button'
+import Tag from './Tag'
 
 interface CtaProps {
   headerText: string
@@ -13,12 +14,14 @@ interface CtaProps {
   tagText?: string[]
 }
 
-export default function Cta () {
+export default function Cta() {
   return (
     <section className="mt-5 mx-auto flex flex-col">
       <header className="flex flex-col text-stone-200">
         <div className="flex flex-row gap-8 justify-start mb-4 mx-auto">
-          <span className="postStatus font-semibold text-old-brick-300">Featured :</span>
+          <span className="postStatus font-semibold text-old-brick-300">
+            Featured :
+          </span>
           <span className="postDate font-semibold">June 04, 2024</span>
         </div>
         <span className="headerText text-center text-3xl font-bold items-center mb-8">
@@ -35,20 +38,21 @@ export default function Cta () {
       </header>
       <div className="mx-auto mt-10 mb-6 font-semibold w-6/12 ">
         <span className="">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum excepturi et fugiat sapiente, labore blanditiis maiores doloribus minus deserunt eius harum reiciendis vel sed ipsam dolore asperiores corrupti repellat? At!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
+          excepturi et fugiat sapiente, labore blanditiis maiores doloribus
+          minus deserunt eius harum reiciendis vel sed ipsam dolore asperiores
+          corrupti repellat? At!
         </span>
       </div>
-      <div className="tagText flex flex-row text-sm mx-auto my-2 font-semibold w-6/12">
-        <span>#hardware</span>
-        <span className="ml-3">#laptops</span>
+      <div className="tagText flex flex-row text-sm mx-auto my-2 font-semibold w-6/12 box-border">
+        <Tag tagText="hardware" />
+        <Tag tagText="laptops" />
       </div>
       <div className="buttonArea mx-auto mt-7 mb-6 font-semibold w-6/12">
-        {/* <button
-          className="bg-old-brick-800 p-4 rounded border-old-brick-200 font-semibold hover:bg-old-brick-700 hover:text-white"
-        >
-          Continue Reading
-        </button> */}
-        <Button buttonText={'Continue Reading'} specificStyle="bg-old-brick-800 p-4 rounded border-old-brick-200 font-semibold hover:bg-old-brick-700 hover:text-white" />
+        <Button
+          buttonText={'Continue Reading'}
+          specificStyle="box-border bg-old-brick-800 p-4 rounded border-old-brick-200 font-semibold hover:bg-old-brick-700 hover:text-white"
+        />
       </div>
     </section>
   )
