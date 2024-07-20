@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Link from 'next/link'
 
 export interface PostStubProps {
   showHr?: boolean
@@ -42,10 +42,12 @@ export default function PostStub (props: PostStubProps) {
                   # Asp.Net
                 </span>
               </div>
-              <Button
-                buttonText={'Read More'}
-                specificStyle="bg-old-brick-800 p-4 rounded border-old-brick-200 hover:bg-old-brick-700 hover:text-white"
-              />
+              <Link
+                href={'/blog/post'}
+                className="bg-old-brick-800 p-4 rounded border-old-brick-200 hover:bg-old-brick-700 hover:text-white"
+              > 
+                Read More
+              </Link>
             </div>
           </div>
         </div>
