@@ -43,7 +43,7 @@ export default function PostStub (props: PostStubProps) {
                 </span>
               </div>
               <Link
-                href={'/blog/post'}
+                href={'/blog/some-slug'}
                 className="bg-old-brick-800 p-4 rounded border-old-brick-200 hover:bg-old-brick-700 hover:text-white"
               > 
                 Read More
